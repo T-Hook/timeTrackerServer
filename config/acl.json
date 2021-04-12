@@ -1,0 +1,78 @@
+[
+  {
+    "group": "user",
+    "permissions": [
+      {
+        "resource": "auth/register",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "auth/login",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/",
+        "methods": ["POST", "GET", "PUT"],
+        "action": "allow"
+      }
+    ],
+    "action": "allow"
+  },
+  {
+    "group": "guest",
+    "permissions": [
+      {
+        "resource": "auth/register",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "auth/login",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "api/users/",
+        "methods": ["POST", "GET", "PUT"],
+        "action": "deny"
+      },
+      {
+        "resource": "/api/users/me",
+        "methods": ["POST", "GET", "PUT"],
+        "action": "allow"
+      }
+    ]
+  },
+  {
+    "group": "superuser",
+    "permissions": [
+      {
+        "resource": "auth/register",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "auth/login",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "api/users/",
+        "methods": ["POST", "GET", "PUT"],
+        "action": "deny"
+      }
+    ]
+  },
+  {
+    "group": "superuser",
+    "permissions": [
+      {
+        "resource": "*",
+        "methods": ["POST","OPTIONS","GET","PUT","DELETE"],
+        "action": "allow"
+      }
+    ]
+  }
+]

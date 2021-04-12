@@ -1,0 +1,712 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Xdash Rest-API ",
+    "description": "Xdash Rest-API "
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "API for authorization/authenticating users in the system"
+    },
+    {
+      "name": "Users",
+      "description": "API for users in the system"
+    },
+    {
+      "name": "Project",
+      "description": "API for projects in the system"
+    },
+    {
+      "name": "Mongo Connector",
+      "description": "API for mongo connectors in the system"
+    }
+  ],
+  "securityDefinitions": {
+    "Bearer": {
+      "name": "Authorization",
+      "description": "API Token",
+      "type": "apiKey",
+      "in": "header"
+    }
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/plugins/connector/mongo/": {
+      "post": {
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "tags": [
+          "mongo",
+          "connector"
+        ],
+        "summary": "save new mongo connector related to the current user",
+        "description": "save new connector related to the current user",
+        "parameters": [
+          {
+            "name": "mongo connector",
+            "in": "body",
+            "description": "mongo connector that we want to create",
+            "schema": {
+              "$ref": "#/definitions/Mongo"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "list all Mongo ",
+            "schema": {
+              "$ref": "#/definitions/Mongo"
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "schema": {
+              "$ref": "#/definitions/UnAuthorized"
+            }
+          }
+        }
+      },
+      "get": {
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "tags": [
+          "mongo"
+        ],
+        "summary": "get all connector connector created by the current user",
+        "description": "display all connector ",
+        "parameters": [
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "connectors details  ",
+            "schema": {
+              "$ref": "#/definitions/Mongo"
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "schema": {
+              "$ref": "#/definitions/UnAuthorized"
+            }
+          }
+        }
+      }
+    },
+    "/api/plugins/connector/mongo/:id": {
+      "get": {
+        "tags": [
+          "mongo"
+        ],
+        "summary": "get coneector details by Id ",
+        "description": "display one connector ",
+        "parameters": [
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "connector details  ",
+            "schema": {
+              "$ref": "#/definitions/Mongo"
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "schema": {
+              "$ref": "#/definitions/UnAuthorized"
+            }
+          }
+        }
+      }
+    },
+    "/api/plugins/connector/mongo/:connector/:collection/:page": {
+      "post": {
+        "tags": [
+          "mongo"
+        ],
+        "summary": "use Mongo Connector (save data)",
+        "description": "save data into the appropriate DB connector , the data should be in the data object into the request body , the write field in the connector should be true to enable connector to save data  ",
+        "parameters": [
+          {
+            "name": "connector",
+            "in": "url",
+            "description": "mongo id that you want to use",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "collection",
+            "in": "url",
+            "description": "collection name that you want to create",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "list all data in the specified collection  ",
+            "schema": {
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "schema": {
+              "$ref": "#/definitions/UnAuthorized"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "mongo"
+        ],
+        "summary": "use Mongo Connector ( get list ) ",
+        "description": "get data from  the appropriate DB connector ,the read field in the connector should be true to enable connector to save data  ",
+        "parameters": [
+          {
+            "name": "connector",
+            "in": "url",
+            "description": "mongo connector name that you want to use",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "collection",
+            "in": "url",
+            "description": "collection name that you want to create",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "list all data in the specified collection  ",
+            "schema": {
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "schema": {
+              "$ref": "#/definitions/UnAuthorized"
+            }
+          }
+        }
+      }
+    },
+    "/api/plugins/connector/mongo/:connector/:page": {
+      "post": {
+        "tags": [
+          "mongo"
+        ],
+        "summary": "use Mongo Connector (save data)",
+        "description": "save data into the appropriate DB connector , the data should be in the data object into the request body . the write field in the connector should be true to enable connector to save data  ",
+        "parameters": [
+          {
+            "name": "connector",
+            "in": "url",
+            "description": "mongo id that you want to use",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "list all data in the specified collection  ",
+            "schema": {
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "schema": {
+              "$ref": "#/definitions/UnAuthorized"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "mongo"
+        ],
+        "summary": "use Mongo Connector ( get list ) ",
+        "description": "get data from  the appropriate DB connector   . the read field in the connector should be true to enable connector to save data  ",
+        "parameters": [
+          {
+            "name": "connector",
+            "in": "url",
+            "description": "mongo connector name that you want to use",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "list all data in the specified collection  ",
+            "schema": {
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "schema": {
+              "$ref": "#/definitions/UnAuthorized"
+            }
+          }
+        }
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Register new user in system",
+        "description": "Register new user in system",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User that we want to create",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New user is created",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "schema": {
+              "$ref": "#/definitions/UnAuthorized"
+            }
+          }
+        }
+      }
+    },
+    "/auth/activate/{ACTIVATION_TOKEN}": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Activate user",
+        "parameters": [
+          {
+            "name": "ACTIVATION_TOKEN",
+            "in": "path",
+            "required": true,
+            "description": "ACTIVATION_TOKEN for user",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "schema": {
+              "$ref": "#/definitions/UnAuthorized"
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "User Login",
+        "description": "Login user in system",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "schema": {
+              "required": [
+                "email",
+                "password"
+              ],
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "value": "user@gmail.com"
+                },
+                "password": {
+                  "type": "string",
+                  "value": "devpass"
+                }
+              }
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "User logged in successfully.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "schema": {
+              "$ref": "#/definitions/UnAuthorized"
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "summary": "Get users",
+        "responses": {
+          "200": {
+            "description": "List of users",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          }
+        }
+      }
+    },
+    "/api/project": {
+      "post": {
+        "tags": [
+          "project"
+        ],
+        "summary": "save new project related to the current user",
+        "description": "save new project related to the current user",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "body",
+            "description": "project that we want to create",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "list all projects ",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "schema": {
+              "$ref": "#/definitions/UnAuthorized"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "project"
+        ],
+        "summary": "get list projects created by the current user",
+        "description": "get list projects created by the current user",
+        "parameters": [
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "list all projects ",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "schema": {
+              "$ref": "#/definitions/UnAuthorized"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Mongo": {
+      "required": [
+
+          "url",
+          "port",
+          "description",
+          "name",
+          "username",
+          "password",
+          "collectionName",
+          "flexible",
+          "dbName",
+          "read",
+          "write"
+
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "port": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "description": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "name": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "username": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "password": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "collectionName": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "dbName": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "flexible": {
+          "type": "boolean",
+          "uniqueItems": true
+        },
+        "read": {
+          "type": "boolean",
+          "uniqueItems": true
+        },
+        "write": {
+          "type": "boolean",
+          "uniqueItems": true
+        }
+      }
+    },
+    "MongoConnector": {
+      "required": [
+      ],
+      "properties": {
+        "meta": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "data": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "scaling": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "device": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "dashboard": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "connections": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "exportOptions": {
+          "type": "object",
+          "uniqueItems": true
+        }
+      }
+    },
+    "Project": {
+      "required": [
+        "meta",
+        "data",
+        "scaling",
+        "device",
+        "dashboard",
+        "connections",
+        "exportOptions"
+      ],
+      "properties": {
+        "meta": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "data": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "scaling": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "device": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "dashboard": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "connections": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "exportOptions": {
+          "type": "object",
+          "uniqueItems": true
+        }
+      }
+    },
+    "User": {
+      "required": [
+        "email",
+        "username",
+        "password",
+        "xdashId",
+        "tokens",
+        "fname",
+        "lname"
+      ],
+      "properties": {
+        "email": {
+          "type": "string",
+          "uniqueItems": true,
+          "default": "tsestUser@gmail.com"
+        },
+        "username": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "password": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "xdashId": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "fname": {
+          "type": "string",
+          "uniqueItems": true,
+          "default": "test"
+        },
+        "lname": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      }
+    },
+    "Users": {
+      "type": "array",
+      "$ref": "#/definitions/User"
+    },
+    "UnAuthorized": {
+      "properties": {
+        "msg": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "location": {
+                "type": "string"
+              },
+              "param": {
+                "type": "string"
+              },
+              "msg": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

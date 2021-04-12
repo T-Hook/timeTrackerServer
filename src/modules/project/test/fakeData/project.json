@@ -1,0 +1,623 @@
+{
+  "meta": {
+    "version": "0.900.6904",
+    "date": "Mon Nov 26 2018 13:26:54 GMT+0100 (heure normale d’Europe centrale)",
+    "name": "gasmap-demo 2",
+    "description": "This demo simulates the real-time operation of the IFPEN measurement system GasMap",
+    "tags": [
+      {
+        "text": "GasMap"
+      },
+      {
+        "text": "Heatmap"
+      },
+      {
+        "text": "CH4"
+      },
+      {
+        "text": "Measure"
+      }
+    ]
+  },
+  "data": {
+    "version": 1,
+    "allow_edit": true,
+    "plugins": [],
+    "panes": [],
+    "datasources": [
+
+    ],
+    "columns": 3,
+    "reIndexMap": [
+      1,
+      0,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      8,
+      10
+    ],
+    "noTopologicalSortAtSerialize": true
+  },
+  "scaling": {
+    "widthPx": 1318,
+    "heightPx": 793,
+    "scrollWidthPx": 1304,
+    "scrollHeightPx": 776,
+    "widthVw": 68.64583333333333,
+    "heightVh": 72.1565059144677,
+    "scrollWidthVw": 67.91666666666667,
+    "scrollHeightVh": 70.60964513193812,
+    "scalingMethod": "scaleTwSp",
+    "media": "large",
+    "colDims": null
+  },
+  "device": {
+    "cols": {
+      "valueRow": "none",
+      "valueCol": "1",
+      "maxCells": 0,
+      "maxCols": 0,
+      "classType": ""
+    },
+    "droppers": {}
+  },
+  "dashboard": {
+    "flatUiValue0": {
+      "layout": {
+        "top": "50.0626vh",
+        "left": "0.490678vw",
+        "height": "4.45762vh",
+        "width": "9.81359vw",
+        "minHeight": "",
+        "minWidth": ""
+      },
+      "container": {
+        "id": "flatUiValue0",
+        "instanceId": "flatUiValue0",
+        "modelJsonId": "flatUiValue"
+      },
+      "modelParameters": {
+        "label": "latitude",
+        "inheritLabelFromData": false,
+        "displayLabel": true,
+        "validationButton": false,
+        "isNumber": true,
+        "decimalDigits": 6,
+        "fontSize": 0.5,
+        "valueColor": "#34495e",
+        "displayBorder": false
+      },
+      "modelHiddenParams": {
+        "value": ""
+      }
+    },
+    "flatUiValuek": {
+      "layout": {
+        "top": "50.1483vh",
+        "left": "12.7577vw",
+        "height": "4.20045vh",
+        "width": "9.81359vw",
+        "minHeight": "",
+        "minWidth": ""
+      },
+      "container": {
+        "id": "flatUiValuek",
+        "instanceId": "flatUiValuek",
+        "modelJsonId": "flatUiValue"
+      },
+      "modelParameters": {
+        "label": "longitude",
+        "inheritLabelFromData": false,
+        "displayLabel": true,
+        "validationButton": false,
+        "isNumber": true,
+        "decimalDigits": 6,
+        "fontSize": 0.5,
+        "valueColor": "#34495e",
+        "displayBorder": false
+      },
+      "modelHiddenParams": {
+        "value": ""
+      }
+    },
+    "flatUiValue1": {
+      "layout": {
+        "top": "56.5775vh",
+        "left": "37.2915vw",
+        "height": "4.45762vh",
+        "width": "9.81359vw",
+        "minHeight": "",
+        "minWidth": ""
+      },
+      "container": {
+        "id": "flatUiValue1",
+        "instanceId": "flatUiValue1",
+        "modelJsonId": "flatUiValue"
+      },
+      "modelParameters": {
+        "label": "CH4 [0-1]",
+        "inheritLabelFromData": false,
+        "displayLabel": true,
+        "validationButton": false,
+        "isNumber": false,
+        "decimalDigits": 3,
+        "fontSize": 0.5,
+        "valueColor": "#34495e",
+        "displayBorder": false
+      },
+      "modelHiddenParams": {
+        "value": ""
+      }
+    },
+    "flatUiValuen": {
+      "layout": {
+        "top": "56.5775vh",
+        "left": "0.490678vw",
+        "height": "4.45762vh",
+        "width": "9.81359vw",
+        "minHeight": "",
+        "minWidth": ""
+      },
+      "container": {
+        "id": "flatUiValuen",
+        "instanceId": "flatUiValuen",
+        "modelJsonId": "flatUiValue"
+      },
+      "modelParameters": {
+        "label": "min CH4",
+        "inheritLabelFromData": false,
+        "displayLabel": true,
+        "validationButton": false,
+        "isNumber": true,
+        "decimalDigits": 3,
+        "fontSize": 0.5,
+        "valueColor": "#34495e",
+        "displayBorder": false
+      },
+      "modelHiddenParams": {
+        "value": ""
+      }
+    },
+    "flatUiValueq": {
+      "layout": {
+        "top": "56.5775vh",
+        "left": "12.7577vw",
+        "height": "4.45762vh",
+        "width": "9.81359vw",
+        "minHeight": "",
+        "minWidth": ""
+      },
+      "container": {
+        "id": "flatUiValueq",
+        "instanceId": "flatUiValueq",
+        "modelJsonId": "flatUiValue"
+      },
+      "modelParameters": {
+        "label": "max CH4",
+        "inheritLabelFromData": false,
+        "displayLabel": true,
+        "validationButton": false,
+        "isNumber": true,
+        "decimalDigits": 3,
+        "fontSize": 0.5,
+        "valueColor": "#34495e",
+        "displayBorder": false
+      },
+      "modelHiddenParams": {
+        "value": ""
+      }
+    },
+    "flatUiValuex": {
+      "layout": {
+        "top": "56.5775vh",
+        "left": "25.0246vw",
+        "height": "4.45762vh",
+        "width": "9.81359vw",
+        "minHeight": "",
+        "minWidth": ""
+      },
+      "container": {
+        "id": "flatUiValuex",
+        "instanceId": "flatUiValuex",
+        "modelJsonId": "flatUiValue"
+      },
+      "modelParameters": {
+        "label": "CH4 [ppm]",
+        "inheritLabelFromData": false,
+        "displayLabel": true,
+        "validationButton": false,
+        "isNumber": true,
+        "decimalDigits": 3,
+        "fontSize": 0.5,
+        "valueColor": "#34495e",
+        "displayBorder": false
+      },
+      "modelHiddenParams": {
+        "value": ""
+      }
+    },
+    "flatUiValuer": {
+      "layout": {
+        "top": "63.0068vh",
+        "left": "0.490678vw",
+        "height": "4.28618vh",
+        "width": "9.81359vw",
+        "minHeight": "",
+        "minWidth": ""
+      },
+      "container": {
+        "id": "flatUiValuer",
+        "instanceId": "flatUiValuer",
+        "modelJsonId": "flatUiValue"
+      },
+      "modelParameters": {
+        "label": "min C2H6",
+        "inheritLabelFromData": false,
+        "displayLabel": true,
+        "validationButton": false,
+        "isNumber": true,
+        "decimalDigits": 3,
+        "fontSize": 0.5,
+        "valueColor": "#34495e",
+        "displayBorder": false
+      },
+      "modelHiddenParams": {
+        "value": ""
+      }
+    },
+    "flatUiValueu": {
+      "layout": {
+        "top": "63.0068vh",
+        "left": "12.7577vw",
+        "height": "4.45762vh",
+        "width": "9.81359vw",
+        "minHeight": "",
+        "minWidth": ""
+      },
+      "container": {
+        "id": "flatUiValueu",
+        "instanceId": "flatUiValueu",
+        "modelJsonId": "flatUiValue"
+      },
+      "modelParameters": {
+        "label": "max C2H6",
+        "inheritLabelFromData": false,
+        "displayLabel": true,
+        "validationButton": false,
+        "isNumber": true,
+        "decimalDigits": 3,
+        "fontSize": 0.5,
+        "valueColor": "#34495e",
+        "displayBorder": false
+      },
+      "modelHiddenParams": {
+        "value": ""
+      }
+    },
+    "flatUiValue6": {
+      "layout": {
+        "top": "63.0068vh",
+        "left": "25.0246vw",
+        "height": "4.45762vh",
+        "width": "9.81359vw",
+        "minHeight": "",
+        "minWidth": ""
+      },
+      "container": {
+        "id": "flatUiValue6",
+        "instanceId": "flatUiValue6",
+        "modelJsonId": "flatUiValue"
+      },
+      "modelParameters": {
+        "label": "C2H6 [ppm]",
+        "inheritLabelFromData": false,
+        "displayLabel": true,
+        "validationButton": false,
+        "isNumber": true,
+        "decimalDigits": 3,
+        "fontSize": 0.5,
+        "valueColor": "#34495e",
+        "displayBorder": false
+      },
+      "modelHiddenParams": {
+        "value": ""
+      }
+    },
+    "flatUiValuew": {
+      "layout": {
+        "top": "63.0068vh",
+        "left": "37.2915vw",
+        "height": "4.28618vh",
+        "width": "9.81359vw",
+        "minHeight": "",
+        "minWidth": ""
+      },
+      "container": {
+        "id": "flatUiValuew",
+        "instanceId": "flatUiValuew",
+        "modelJsonId": "flatUiValue"
+      },
+      "modelParameters": {
+        "label": "C2H6 [0-1]",
+        "inheritLabelFromData": false,
+        "displayLabel": true,
+        "validationButton": false,
+        "isNumber": true,
+        "decimalDigits": 3,
+        "fontSize": 0.5,
+        "valueColor": "#34495e",
+        "displayBorder": false
+      },
+      "modelHiddenParams": {
+        "value": ""
+      }
+    },
+    "annotationImages": {
+      "layout": {
+        "top": "0.819187vh",
+        "left": "19.9215vw",
+        "height": "6.47159vh",
+        "width": "8.63593vw",
+        "minHeight": "",
+        "minWidth": ""
+      },
+      "container": {
+        "id": "annotationImages",
+        "instanceId": "annotationImages",
+        "modelJsonId": "annotationImage"
+      },
+      "modelParameters": {
+        "keepOriginalDimensions": true,
+        "keepRatio": true
+      },
+      "modelHiddenParams": {
+        "fileContentBase64": "",
+        "mimeType": "image/jpeg",
+        "ratio": 2.3835616438356166,
+        "bFirstLoad": true
+      }
+    },
+    "annotationLabelv": {
+      "layout": {
+        "top": "0.857235vh",
+        "left": "1.22669vw",
+        "height": "6.34355vh",
+        "width": "17.0265vw",
+        "minHeight": "",
+        "minWidth": ""
+      },
+      "container": {
+        "id": "annotationLabelv",
+        "instanceId": "annotationLabelv",
+        "modelJsonId": "annotationLabel"
+      },
+      "modelParameters": {
+        "text": "GasMap real-time",
+        "fontsize": 1.5,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "textAlign": "left"
+      },
+      "modelHiddenParams": {}
+    },
+    "flatUiValueO": {
+      "layout": {
+        "top": "50.1483vh",
+        "left": "25.0246vw",
+        "height": "4.45762vh",
+        "width": "9.81359vw",
+        "minHeight": "",
+        "minWidth": ""
+      },
+      "container": {
+        "id": "flatUiValueO",
+        "instanceId": "flatUiValueO",
+        "modelJsonId": "flatUiValue"
+      },
+      "modelParameters": {
+        "label": "Temps écoulé",
+        "inheritLabelFromData": true,
+        "displayLabel": true,
+        "labelFontSize": 0.2,
+        "valueWidthProportion": "70%",
+        "validationButton": false,
+        "isNumber": false,
+        "decimalDigits": 3,
+        "valueFontSize": 0.2,
+        "valueColor": "#34495e",
+        "displayBorder": false
+      },
+      "modelHiddenParams": {
+        "value": ""
+      }
+    },
+    "openStreetMapsD": {
+      "layout": {
+        "top": "10.8011vh",
+        "left": "0.932288vw",
+        "height": "34.8894vh",
+        "width": "60.5987vw",
+        "minHeight": "",
+        "minWidth": ""
+      },
+      "container": {
+        "id": "openStreetMapsD",
+        "instanceId": "openStreetMapsD",
+        "modelJsonId": "openStreetMaps"
+      },
+      "modelParameters": {
+        "defaultCenter": {
+          "latitude": 48.872063,
+          "longitude": 2.331773,
+          "zoom": 16
+        },
+        "geoJson": {
+          "numberOfLayers": 0
+        },
+        "heatMap": {
+          "numberOfLayers": 2,
+          "sampledDisplay": true
+        },
+        "offlineSupport": true,
+        "tileServer": "HereHybridDay"
+      },
+      "modelHiddenParams": {
+        "geoJson": {
+          "geoJsonLayers": [],
+          "geoJsonBounds": []
+        },
+        "heatMap": {
+          "heatMapData": []
+        },
+        "legends": [],
+        "colors": [
+          "#800080",
+          "#FF00FF",
+          "#000080",
+          "#0000FF",
+          "#008080",
+          "#00FFFF",
+          "#FFFF00",
+          "#800000"
+        ]
+      }
+    }
+  },
+  "connections": {
+    "flatUiValue0": {
+      "value": {
+        "name": "value",
+        "dataSource": "gpsPos",
+        "dataFields": [
+          "lat"
+        ],
+        "dataSourceIndex": 6
+      }
+    },
+    "flatUiValuek": {
+      "value": {
+        "name": "value",
+        "dataSource": "gpsPos",
+        "dataFields": [
+          "lng"
+        ],
+        "dataSourceIndex": 6
+      }
+    },
+    "flatUiValue1": {
+      "value": {
+        "name": "value",
+        "dataSource": "scaledCGas",
+        "dataFields": [
+          "scaled_CH4"
+        ],
+        "dataSourceIndex": 5
+      }
+    },
+    "flatUiValuen": {
+      "value": {
+        "name": "value",
+        "dataSource": "scalingCGas",
+        "dataFields": [
+          "CH4",
+          "min"
+        ],
+        "dataSourceIndex": 0
+      }
+    },
+    "flatUiValueq": {
+      "value": {
+        "name": "value",
+        "dataSource": "scalingCGas",
+        "dataFields": [
+          "CH4",
+          "max"
+        ],
+        "dataSourceIndex": 0
+      }
+    },
+    "flatUiValuex": {
+      "value": {
+        "name": "value",
+        "dataSource": "mesuresCGas",
+        "dataFields": [
+          "CH4"
+        ],
+        "dataSourceIndex": 4
+      }
+    },
+    "flatUiValuer": {
+      "value": {
+        "name": "value",
+        "dataSource": "scalingCGas",
+        "dataFields": [
+          "C2H6",
+          "min"
+        ],
+        "dataSourceIndex": 0
+      }
+    },
+    "flatUiValueu": {
+      "value": {
+        "name": "value",
+        "dataSource": "scalingCGas",
+        "dataFields": [
+          "C2H6",
+          "max"
+        ],
+        "dataSourceIndex": 0
+      }
+    },
+    "flatUiValue6": {
+      "value": {
+        "name": "value",
+        "dataSource": "mesuresCGas",
+        "dataFields": [
+          "C2H6"
+        ],
+        "dataSourceIndex": 4
+      }
+    },
+    "flatUiValuew": {
+      "value": {
+        "name": "value",
+        "dataSource": "scaledCGas",
+        "dataFields": [
+          "scaled_C2H6"
+        ],
+        "dataSourceIndex": 5
+      }
+    },
+    "annotationImages": {},
+    "annotationLabelv": {},
+    "flatUiValueO": {
+      "value": {
+        "name": "value",
+        "dataSource": "playedMeasures",
+        "dataFields": [
+          "Temps écoulé"
+        ],
+        "dataSourceIndex": 2
+      }
+    },
+    "openStreetMapsD": {
+      "heatMapPoint1": {
+        "name": "heatMapPoint1",
+        "dataSource": "heatMapCH4Point",
+        "dataFields": [],
+        "dataSourceIndex": 8
+      },
+      "heatMapPoint2": {
+        "name": "heatMapPoint2",
+        "dataSource": "heatMapC2H6Point",
+        "dataFields": [],
+        "dataSourceIndex": 7
+      }
+    }
+  },
+  "exportOptions": "projectToTargetWindow"
+}

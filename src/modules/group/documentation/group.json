@@ -1,0 +1,110 @@
+{
+  "paths": {
+    "/api/group": {
+      "post": {
+        "tags": [
+          "group"
+        ],
+        "summary": "save new group related to the current user",
+        "description": "save new group related to the current user",
+        "parameters": [
+          {
+            "name": "group",
+            "in": "body",
+            "description": "group that we want to create",
+            "schema": {
+              "$ref": "#/definitions/Group"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "list all groups ",
+            "schema": {
+              "$ref": "#/definitions/Group"
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "schema": {
+              "$ref": "#/definitions/UnAuthorized"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "group"
+        ],
+        "summary": "get list groups created by the current user",
+        "description": "get list groups created by the current user",
+        "parameters": [
+
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "list all groups ",
+            "schema": {
+              "$ref": "#/definitions/Group"
+            }
+          },
+          "401": {
+            "description": "UnAuthorized",
+            "schema": {
+              "$ref": "#/definitions/UnAuthorized"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions":{
+    "Group": {
+      "required": [
+        "meta",
+        "data",
+        "scaling",
+        "device",
+        "dashboard",
+        "connections",
+        "exportOptions"
+      ],
+      "properties": {
+        "meta": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "data": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "scaling": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "device": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "dashboard": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "connections": {
+          "type": "object",
+          "uniqueItems": true
+        },
+        "exportOptions": {
+          "type": "object",
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}
