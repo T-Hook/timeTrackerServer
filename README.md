@@ -35,11 +35,6 @@ change the RUN_FIXTER =true in the .env file
 npm run test
 ```
 
-# TODO
-- Implement RBAC functionality
-- ~~Integrate Swagger~~
-- Test coverage
-
 #Post Man
 - import the postman/{username}/timeTrackerServer.postman_collection.json file in post man to get all end points
 - import the postman/{username}/timeTrackerServer.postman_environment.json file in post man to get all necessary environments var
