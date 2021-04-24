@@ -23,7 +23,38 @@ class SprintService {
      * @returns {Promise<Sprint[]>}
      */
     async findAll(): Promise<Sprint[]> {
-        return await SprintRepository.find({}) as Sprint[];
+        return await SprintRepository.find({}).populate(
+            {
+                path: 'idUser',
+                model: 'User',
+            })
+             .populate(
+                    {
+                        path: 'idProject',
+                        model: 'Project',
+                    })
+                    .populate(
+                        {
+                            path: 'idTask',
+                            model: 'Task',
+                        }) as Sprint[];
+    }
+    async findAllInproject(projectId): Promise<Sprint[]> {
+        return await SprintRepository.find({idProject: projectId}).populate(
+            {
+                path: 'idUser',
+                model: 'User',
+            })
+             .populate(
+                    {
+                        path: 'idProject',
+                        model: 'Project',
+                    })
+                    .populate(
+                        {
+                            path: 'idTask',
+                            model: 'Task',
+                        }) as Sprint[];
     }
     async update(id , sprint): Promise<Sprint> {
         return await SprintRepository.update({_id: id}, sprint) as Sprint;
@@ -37,10 +68,9 @@ class SprintService {
      * @param idSprint
      * @returns {Promise<Sprint[]>}
      */
-    async findOneByIdAndOwnerId(user, idSprint): Promise<Sprint> {
-        return await SprintRepository.findOne({idUser: user._id, _id: idSprint}) as Sprint;
+    async findOneByIdAndOwnerId(user): Promise<Sprint[]> {
+        return await SprintRepository.find({idUser: user._id}) as Sprint[];
     }
-
     /**
      * @param user
      * @param idSprint

@@ -18,6 +18,18 @@ class TaskController {
             });
         }
     }
+    async getAllinproject(req: Request, resp: Response) {
+        try {
+            const ProjectId = req.params.id;
+            const tasks = await TaskService.findAllInproject(ProjectId);
+            resp.status(200).send(tasks);
+        } catch (error) {
+            resp.send({
+                msg: 'Not found',
+                status: 404
+            });
+        }
+    }
     async update(req: Request, resp: Response) {
         const task: Task = req.body;
         // @ts-ignore
@@ -72,7 +84,7 @@ class TaskController {
 
     async findOneByIdAndOwnerId(req: Request, resp: Response) {
         try {
-            const task = await TaskService.findOneByIdAndOwnerId(req.user, req.params.id);
+            const task = await TaskService.findOneByIdAndOwnerId(req.user);
             resp.status(200).send(task);
         } catch (error) {
             resp.send({

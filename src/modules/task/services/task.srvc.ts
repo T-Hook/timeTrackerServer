@@ -34,6 +34,18 @@ class TaskService {
                         model: 'Project',
                     }) as Task[];
     }
+    async findAllInproject(projectId): Promise<Task[]> {
+        return await TaskRepository.find({idProject : projectId}).populate(
+            {
+                path: 'idUser',
+                model: 'User',
+            })
+             .populate(
+                    {
+                        path: 'idProject',
+                        model: 'Project',
+                    }) as Task[];
+    }
     async update(id , task): Promise<Task> {
         return await TaskRepository.update({_id: id}, task) as Task;
     }
@@ -46,8 +58,8 @@ class TaskService {
      * @param idTask
      * @returns {Promise<Task[]>}
      */
-    async findOneByIdAndOwnerId(user, idTask): Promise<Task> {
-        return await TaskRepository.findOne({idUser: user._id, _id: idTask}) as Task;
+    async findOneByIdAndOwnerId(user): Promise<Task[]> {
+        return await TaskRepository.find({idUser: user._id}) as Task[];
     }
 
     /**

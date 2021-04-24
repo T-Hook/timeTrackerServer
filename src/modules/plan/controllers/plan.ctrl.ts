@@ -119,6 +119,28 @@ class PlanController {
         }
     }
 
+    addRuletoPlan(req: Request, resp: Response) {
+        try {
+            const plan = req.params.idplan, rule = req.params.idrule;
+            PlanService.findById(plan).then(res => {
+                res.rules.push(rule);
+                PlanService.updateRule(plan, res.rules).then(res => {
+                    resp.send({
+                        msg: 'update plan',
+                        data: res,
+                        url: req.protocol + '://' + req.get('host') + req.originalUrl,
+                        status: 201
+                    });
+                });
+            });
+        } catch (error) {
+            resp.send({
+                msg: error.errors ? error.errors : error,
+                url: req.protocol + '://' + req.get('host') + req.originalUrl,
+                status: 401
+            });
+        }
+    }
 }
 
 export default new PlanController();

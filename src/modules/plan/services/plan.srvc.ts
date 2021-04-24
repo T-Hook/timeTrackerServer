@@ -78,6 +78,9 @@ class PlanService {
     async deleteOneById(id: string): Promise<void> {
         return await PlanRepository.deleteOne({_id: id});
     }
+    updateRule(id, rules) {
+        return PlanRepository.findByIdAndUpdate(id, {rules: rules});
+    }
 }
 
 

@@ -18,6 +18,18 @@ class SprintController {
             });
         }
     }
+    async getAllInproject(req: Request, resp: Response) {
+        try {
+          const ProjectId = req.params.id;
+            const sprints = await SprintService.findAllInproject(ProjectId);
+            resp.status(200).send(sprints);
+        } catch (error) {
+            resp.send({
+                msg: 'Not found',
+                status: 404
+            });
+        }
+    }
     async update(req: Request, resp: Response) {
         const sprint: Sprint = req.body;
         // @ts-ignore
@@ -72,7 +84,7 @@ class SprintController {
 
     async findOneByIdAndOwnerId(req: Request, resp: Response) {
         try {
-            const sprint = await SprintService.findOneByIdAndOwnerId(req.user, req.params.id);
+            const sprint = await SprintService.findOneByIdAndOwnerId(req.user);
             resp.status(200).send(sprint);
         } catch (error) {
             resp.send({
@@ -83,7 +95,7 @@ class SprintController {
     }
     async findOneById(req: Request, resp: Response) {
         try {
-            const sprint = await SprintService.findOneById( req.params.id);
+            const sprint = await SprintService.findOneById(req.params.id);
             resp.status(200).send(sprint);
         } catch (error) {
             resp.send({
@@ -95,7 +107,6 @@ class SprintController {
     async saveSprint(req: Request, res: Response, next: NextFunction) {
         try {
             const sprint: Sprint = req.body;
-            sprint.idUser = req.user._id;
             const sprints = await SprintService.save(sprint);
             res.send({
                 msg: 'save sprint',

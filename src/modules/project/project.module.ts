@@ -12,7 +12,7 @@ ProjectRouter.get('/:id', AuthController.verifyUser, ProjectController.findOneBy
 ProjectRouter.put('/:id', AuthController.verifyUser, ProjectController.update);
 ProjectRouter.delete('/:id', AuthController.verifyUser, ProjectController.deleteProject);
 ProjectRouter.get('/company/:id', AuthController.verifyUser, CompanyAclController.verifyUserReadAccessInCompany, ProjectController.getAllProjectInCompany);
-ProjectRouter.get('/shared', AuthController.verifyUser, ProjectController.getAllSharedProjects);
+ProjectRouter.get('/project/shared/:id', AuthController.verifyUser, ProjectController.getAllSharedProjects);
 ProjectRouter.get('/shared/users/:id', AuthController.verifyUser, ProjectController.getUserInProject);
 ProjectRouter.post('/shared', AuthController.verifyUser, ProjectController.saveProjectUser);
 ProjectRouter.get('/company', AuthController.verifyUser, ProjectCompanyController.getCompanyInProject);

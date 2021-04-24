@@ -63,7 +63,8 @@ class ProjectController {
 
     async getAllSharedProjects(req: Request, resp: Response) {
         try {
-            const projects = await ProjectUserService.findAllShared(req.user);
+            const ProjectId = req.params.id;
+            const projects = await ProjectUserService.findAllShared(ProjectId);
             resp.status(200).send(projects);
         } catch (error) {
             resp.send({
