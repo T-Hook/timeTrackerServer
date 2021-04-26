@@ -4,6 +4,7 @@ import AuthController from '../authentication/controllers/auth.ctrl';
 
 const NotificationRouter = Router();
 NotificationRouter.get('/', AuthController.verifyUser, NotificationController.getAll);
+NotificationRouter.get('/notification', AuthController.verifyUser, NotificationController.getone);
 NotificationRouter.post('/', AuthController.verifyUser, NotificationController.save);
 NotificationRouter.get('/:id', AuthController.verifyUser, NotificationController.findOneByIdAndOwnerId);
 NotificationRouter.put('/:id', AuthController.verifyUser,  NotificationController.update);

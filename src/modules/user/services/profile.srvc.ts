@@ -21,9 +21,8 @@ class ProfileService {
      * @param fname
      * @returns {Promise<Profile>}
      */
-    async findById(id): Promise<Profile> {
-        const profile: ProfileType = await ProfileRepository.findOne({_id: id});
-        return profile;
+    async findById(id): Promise<Profile[]> {
+     return  await ProfileRepository.find({_id: id}) as Profile[];
     }
     /**
      * @description Saves the profile in the storage

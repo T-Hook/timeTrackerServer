@@ -7,6 +7,7 @@ const UserRouter = Router();
 UserRouter.get('/', AuthController.verifyUser, UserController.getAll);
 UserRouter.get('/users', AuthController.verifyUser, UserController.getSpecificUserForUserWithShowAccess);
 UserRouter.get('/profiles', AuthController.verifyUser, UserController.getAllProfile);
+UserRouter.get('/user', AuthController.verifyUser, UserController.findprofile);
 UserRouter.get('/me', AuthController.verifyUser, UserController.getProfile);
 UserRouter.post('/', AuthController.verifyUser, UserController.saveUser);
 UserRouter.get('/:id', AuthController.verifyUser, UserController.findOneByIdAndOwnerId);

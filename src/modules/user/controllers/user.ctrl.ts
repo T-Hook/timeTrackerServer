@@ -85,6 +85,18 @@ class UserController {
             });
         }
     }
+    async findprofile(req: Request, resp: Response) {
+        try {
+            const task = await UserService.findOneByIdAndOwner(req.user);
+            resp.status(200).send(task);
+        } catch (error) {
+            resp.send({
+                msg: 'Not found',
+                status: 404
+            });
+        }
+    }
+
     async getAll(req: Request, resp: Response) {
         try {
             const users = await UserService.findAll();

@@ -46,6 +46,30 @@ class ProjectUserService {
                         model: 'Project',
                     }) as ProjectUser[];
     }
+    async findAShared(): Promise<ProjectUser[]> {
+        return await ProjectUserRepository.find({}) .populate(
+            {
+                path: 'idUser',
+                model: 'User',
+            })
+             .populate(
+                    {
+                        path: 'idProject',
+                        model: 'Project',
+                    }) as ProjectUser[];
+    }
+    async find(userId): Promise<ProjectUser[]> {
+        return await ProjectUserRepository.find({idUser : userId}).populate(
+            {
+                path: 'idUser',
+                model: 'User',
+            })
+             .populate(
+                    {
+                        path: 'idProject',
+                        model: 'Project',
+                    }) as ProjectUser[];
+    }
 
     async findAllUserInSharedProject(userId, projectId): Promise<ProjectUser[]> {
         const project = await ProjectRepository.findById(projectId).populate('User') as Project;

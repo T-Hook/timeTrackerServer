@@ -18,6 +18,17 @@ class NotificationController {
             });
         }
     }
+    async getone(req: Request, resp: Response) {
+        try {
+            const notifications = await NotificationService.findone(req.user);
+            resp.status(200).send(notifications);
+        } catch (error) {
+            resp.send({
+                msg: 'Not found',
+                status: 404
+            });
+        }
+    }
     async update(req: Request, resp: Response) {
         const notification: Notification = req.body;
         // @ts-ignore

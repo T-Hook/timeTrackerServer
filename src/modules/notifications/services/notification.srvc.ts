@@ -28,6 +28,13 @@ class NotificationService {
                 model: 'User'
             }) as Notification[];
     }
+    async findone(userId): Promise<Notification[]> {
+        return await NotificationRepository.find({idUser : userId}).populate(
+            {
+                path: 'idUser',
+                model: 'User'
+            }) as Notification[];
+    }
 
     async update(id , notification): Promise<Notification> {
         return await NotificationRepository.update({_id: id}, notification) as Notification;

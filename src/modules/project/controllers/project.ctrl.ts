@@ -73,7 +73,28 @@ class ProjectController {
             });
         }
     }
-
+    async getSharedProjects(req: Request, resp: Response) {
+        try {
+            const projects = await ProjectUserService.findAShared();
+            resp.status(200).send(projects);
+        } catch (error) {
+            resp.send({
+                msg: 'Not found',
+                status: 404
+            });
+        }
+    }
+    async getone(req: Request, resp: Response) {
+        try {
+            const projects = await ProjectUserService.find(req.user);
+            resp.status(200).send(projects);
+        } catch (error) {
+            resp.send({
+                msg: 'Not found !!!!!',
+                status: 404
+            });
+        }
+    }
     async getUserInProject(req: Request, resp: Response) {
         const ProjectId = req.params.id;
         try {

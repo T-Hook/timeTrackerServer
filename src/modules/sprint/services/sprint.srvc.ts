@@ -39,6 +39,23 @@ class SprintService {
                             model: 'Task',
                         }) as Sprint[];
     }
+    async findone(userId): Promise<Sprint[]> {
+        return await SprintRepository.find({idUser: userId}).populate(
+            {
+                path: 'idUser',
+                model: 'User',
+            })
+             .populate(
+                    {
+                        path: 'idProject',
+                        model: 'Project',
+                    })
+                    .populate(
+                        {
+                            path: 'idTask',
+                            model: 'Task',
+                        }) as Sprint[];
+    }
     async findAllInproject(projectId): Promise<Sprint[]> {
         return await SprintRepository.find({idProject: projectId}).populate(
             {

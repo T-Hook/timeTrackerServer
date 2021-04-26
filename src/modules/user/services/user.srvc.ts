@@ -60,8 +60,8 @@ class UserService {
     async deleteOneById(id: string): Promise<void> {
         return await UserRepository.deleteOne({_id: id});
     }
-    async findOneByIdAndOwnerId(user): Promise<User> {
-        return await UserRepository.findOne({idUser: user._id}) as User;
+    async findOneByIdAndOwnerId(idUser): Promise<User[]> {
+        return await UserRepository.find({idUser: idUser}) as User[];
     }
     /**
      * @description Fetches single user from the storage by email or username
@@ -154,6 +154,9 @@ class UserService {
     async findAll(): Promise<User[]> {
         return await UserRepository.find().populate('profile') as User[];
     }
+    async findone(userId): Promise<User[]> {
+        return await UserRepository.find({idUser : userId}).populate('profile') as User[];
+    }
 
     /**
      * @description Deletes a single user from storage
@@ -177,6 +180,9 @@ class UserService {
             idUser: userId,
             acl: {$all: access}
         }).populate({path: 'idUser', model: 'User'}) as User[];
+    }
+    async findOneByIdAndOwner(_id): Promise<User[]> {
+        return await UserRepository.find({_id: _id}) as User[];
     }
 }
 

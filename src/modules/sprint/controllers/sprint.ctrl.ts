@@ -18,6 +18,17 @@ class SprintController {
             });
         }
     }
+    async getone(req: Request, resp: Response) {
+        try {
+            const sprints = await SprintService.findone(req.user);
+            resp.status(200).send(sprints);
+        } catch (error) {
+            resp.send({
+                msg: 'Not found sprint !',
+                status: 404
+            });
+        }
+    }
     async getAllInproject(req: Request, resp: Response) {
         try {
           const ProjectId = req.params.id;

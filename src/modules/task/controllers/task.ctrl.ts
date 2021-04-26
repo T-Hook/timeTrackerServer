@@ -18,6 +18,17 @@ class TaskController {
             });
         }
     }
+    async getone(req: Request, resp: Response) {
+        try {
+            const tasks = await TaskService.findone(req.user);
+            resp.status(200).send(tasks);
+        } catch (error) {
+            resp.send({
+                msg: 'Not found url !',
+                status: 404
+            });
+        }
+    }
     async getAllinproject(req: Request, resp: Response) {
         try {
             const ProjectId = req.params.id;
@@ -95,7 +106,7 @@ class TaskController {
     }
     async findOneById(req: Request, resp: Response) {
         try {
-            const task = await TaskService.findOneById( req.params.id);
+            const task = await TaskService.findOneById(req.params.id);
             resp.status(200).send(task);
         } catch (error) {
             resp.send({
