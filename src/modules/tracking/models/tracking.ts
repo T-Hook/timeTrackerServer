@@ -22,6 +22,12 @@ export interface Tracking {
     totalKeyPress: {type: number, empty: true, required: false};
     totalMouseClick: {type: number, empty: true, required: false};
     screen: {type: string, empty: true, required: false},
+    datestart: {type: string, empty: true, required: false},
+    dateend: {type: string, empty: true, required: false},
+    time: {type: string, empty: true, required: false},
+    hours: {type: string, empty: true, required: false},
+    minutes: {type: string, empty: true, required: false},
+    seconds: {type: string, empty: true, required: false},
     // screen: { type: Buffer, contentType: String },
     psList: {type: Array <any>, empty: true, required: false},
     usedMemory: {type: number, empty: true, required: false},

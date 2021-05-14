@@ -11,7 +11,7 @@ import { default as CompanyAclController } from '../../company/controllers/compa
 class ProjectController {
     async getAll(req: Request, resp: Response) {
         try {
-            const projects = await ProjectService.findAll(req.user);
+            const projects = await ProjectService.findAll();
             resp.status(200).send(projects);
         } catch (error) {
             resp.send({
@@ -36,6 +36,17 @@ class ProjectController {
     async findOneByIdAndOwnerId(req: Request, resp: Response) {
         try {
             const project = await ProjectService.findOneByIdAndOwnerId(req.user, req.params.id);
+            resp.status(200).send(project);
+        } catch (error) {
+            resp.send({
+                msg: 'Not found',
+                status: 404
+            });
+        }
+    }
+    async findOneById(req: Request, resp: Response) {
+        try {
+            const project = await ProjectService.findById(req.params.id);
             resp.status(200).send(project);
         } catch (error) {
             resp.send({

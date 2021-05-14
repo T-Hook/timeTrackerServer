@@ -29,6 +29,12 @@ const TrackingSchema = new mongoose.Schema({
     totalKeyPress: {type: Number, empty: true, required: false},
     totalMouseClick: {type: Number, empty: true, required: false},
     screen: {type: String, empty: true, required: false},
+    datestart: {type: String, empty: true, required: false},
+    dateend: {type: String, empty: true, required: false},
+    time: {type: String, empty: true, required: false},
+    hours: {type: String, empty: true, required: false},
+    minutes: {type: String, empty: true, required: false},
+    seconds: {type: String, empty: true, required: false},
     // screen: { type: Buffer, contentType: String },
     psList: {type: Array, empty: true, required: false},
     usedMemory: {type: Number, empty: true, required: false},
@@ -51,6 +57,12 @@ TrackingSchema.pre('save', async function save(next) {
     console.log('totalKeyPress', tracking.totalKeyPress);
     console.log('totalMouseClick', tracking.totalMouseClick);
     console.log('usedMemory', tracking.usedMemory);
+    console.log('date Start tracking', tracking.datestart);
+    console.log('date end tracking', tracking.dateend);
+    console.log('time spending during work !', tracking.time);
+    console.log('time spending during work per hour ', tracking.hours);
+    console.log('time spending during work per minute', tracking.minutes);
+    console.log('time spending during work per seconds', tracking.seconds);
     console.log('allOpenedWindows', tracking.allOpenedWindows.length);
     console.log('psList', tracking.psList.length);
     next();

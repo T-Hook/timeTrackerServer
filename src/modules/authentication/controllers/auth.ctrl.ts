@@ -281,7 +281,7 @@ class AuthController {
                 // });
             } else {
                 const errorResp: ErrorResponse = new ErrorResponse(req, resp, 440, {},
-                    'user mot found ', 449989228444);
+                    'user not found ', 449989228444);
                 errorResp.code = 4404;
                 errorResp.sendResponse(resp);
             }

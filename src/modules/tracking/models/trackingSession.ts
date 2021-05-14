@@ -14,6 +14,12 @@ export interface TrackingSession {
     trackingRank: {type: number, empty: true, required: false, default: 0};
     elapsedTime: {type: number, empty: true, required: false, default: 0};
     trackingPaused: {type: number, empty: true, required: false},
+    datestart: {type: string, empty: true, required: false},
+    dateend: {type: string, empty: true, required: false},
+    time: {type: string, empty: true, required: false},
+    hours: {type: string, empty: true, required: false},
+    minutes: {type: string, empty: true, required: false},
+    seconds: {type: string, empty: true, required: false},
     idUser: User,
     idProjectUser: ProjectUser,
     idCompany: CompanyUser,

@@ -10,7 +10,7 @@ UserRouter.get('/profiles', AuthController.verifyUser, UserController.getAllProf
 UserRouter.get('/user', AuthController.verifyUser, UserController.findprofile);
 UserRouter.get('/me', AuthController.verifyUser, UserController.getProfile);
 UserRouter.post('/', AuthController.verifyUser, UserController.saveUser);
-UserRouter.get('/:id', AuthController.verifyUser, UserController.findOneByIdAndOwnerId);
+UserRouter.get('/:id', AuthController.verifyUser, UserController.findOneById);
 UserRouter.put('/:id', AuthController.verifyUser,  UserController.update);
 UserRouter.delete('/:id', AuthController.verifyUser,  UserController.delete);
 

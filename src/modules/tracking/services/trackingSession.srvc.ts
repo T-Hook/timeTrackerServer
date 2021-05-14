@@ -37,6 +37,12 @@ class TrackingSessionService {
                 $setOnInsert: {
                     totalTracking: 1,
                     elapsedTime: tracking.elapsedTime,
+                    datestart: tracking.datestart,
+                    dateend: tracking.dateend,
+                    time: tracking.time,
+                    hours: tracking.hours,
+                    minutes: tracking.minutes,
+                    seconds: tracking.seconds,
                     idProjectUser: tracking.idProjectUser,
                     idUser: tracking.idUser,
                     idCompany: tracking.idCompany,
@@ -60,7 +66,10 @@ class TrackingSessionService {
      * @returns {Promise<TrackingSession[]>}
      */
     async findAll(): Promise<TrackingSession[]> {
-        return await TrackingSessionRepository.find({}).limit(100) as TrackingSession[];
+        return await TrackingSessionRepository.find({}).limit(100).populate(
+            {
+                path: 'idUser',
+                model: 'User'})  as TrackingSession[];
     }
 
     /**

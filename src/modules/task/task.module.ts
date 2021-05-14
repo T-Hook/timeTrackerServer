@@ -5,6 +5,7 @@ import AuthController from '../authentication/controllers/auth.ctrl';
 
 const TaskRouter = Router();
 TaskRouter.get('/', AuthController.verifyUser, TaskController.getAll);
+TaskRouter.get('/task/:id', AuthController.verifyUser, TaskController.findOneById);
 TaskRouter.get('/task', AuthController.verifyUser, TaskController.getone);
 TaskRouter.get('/:id', AuthController.verifyUser, TaskController.getAllinproject);
 TaskRouter.post('/', AuthController.verifyUser, TaskController.saveTask);

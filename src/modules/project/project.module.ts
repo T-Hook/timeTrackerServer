@@ -9,7 +9,7 @@ const ProjectRouter = Router();
 ProjectRouter.get('/', AuthController.verifyUser, ProjectController.getAll);
 ProjectRouter.get('/u', AuthController.verifyUser, ProjectController.getone);
 ProjectRouter.post('/', AuthController.verifyUser, ProjectController.saveProject);
-ProjectRouter.get('/:id', AuthController.verifyUser, ProjectController.findOneByIdAndOwnerId);
+ProjectRouter.get('/:id', AuthController.verifyUser, ProjectController.findOneById);
 ProjectRouter.put('/:id', AuthController.verifyUser, ProjectController.update);
 ProjectRouter.delete('/:id', AuthController.verifyUser, ProjectController.deleteProject);
 ProjectRouter.get('/company/:id', AuthController.verifyUser, CompanyAclController.verifyUserReadAccessInCompany, ProjectController.getAllProjectInCompany);

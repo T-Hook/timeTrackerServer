@@ -22,7 +22,10 @@ class TrackingService {
      * @returns {Promise<Tracking[]>}
      */
     async findAll(): Promise<Tracking[]> {
-        return await TrackingRepository.find({}).limit(100) as Tracking[];
+        return await TrackingRepository.find({}).limit(100).populate(
+            {
+                path: 'idUser',
+                model: 'User'}) as Tracking[];
     }
 
     /**

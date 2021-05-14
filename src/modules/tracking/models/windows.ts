@@ -14,6 +14,9 @@ export interface Windows {
     keyPress: {type: number, empty: true, required: false};
     mouseClick: {type: number, empty: true, required: false};
     screen: {type: string, empty: true, required: false},
+    datestart: {type: string, empty: true, required: false},
+    dateend: {type: string, empty: true, required: false},
+    time: {type: string, empty: true, required: false},
     // screen: { type: Buffer, contentType: String },
     psList: {type: Array < object>, empty: true, required: false},
     usedMemory: {type: number, empty: true, required: false},

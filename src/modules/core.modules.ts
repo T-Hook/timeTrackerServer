@@ -5,7 +5,6 @@ import { SwaggerAPIRouter } from '../routes';
 import * as swaggerUI from 'swagger-ui-express';
 import * as swaggerDocument from '../../swagger.json';
 import { SuccessResponse } from '../components/successResponse';
-
 const swaggerUi = require('swagger-ui-express');
 import * as cross from 'cors';
 import { RuleRouter } from './rule/rule.module';
@@ -18,6 +17,7 @@ import { TaskRouter } from './task/task.module';
 import { SprintRouter } from './sprint/sprint.module';
 import { TrackingSessionRouter } from './tracking/trackingSession.module';
 import { NotificationRouter } from './notifications/notification.module';
+import { MailRouter } from './mails/mail.module';
 
 module.exports = (app) => {
     /**
@@ -78,6 +78,10 @@ module.exports = (app) => {
        * Add Notification module
        */
        app.use('/api/notification', cross(), NotificationRouter);
+        /**
+         * Add mails module
+         */
+         app.use('/api/mail', cross(), MailRouter);
     /**
      * Add swagger endpoints
      */

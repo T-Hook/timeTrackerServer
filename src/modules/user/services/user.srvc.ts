@@ -84,10 +84,9 @@ class UserService {
         return (await new UserRepository(user).save()).toObject({virtuals: true});
     }
 
-    async updateUser(userId): Promise<User> {
-        return await UserRepository.update({id: userId}, {}) as User;
+    async updateUser(id, user): Promise<User> {
+        return await UserRepository.update({_id: id}, user) as User;
     }
-
     /**
      * Update User
      * @param {User} user

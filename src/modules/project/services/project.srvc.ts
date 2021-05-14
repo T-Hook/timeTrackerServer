@@ -42,8 +42,8 @@ class ProjectService {
      * @description Fetches all projects from the storage
      * @returns {Promise<Project[]>}
      */
-    async findAll(user): Promise<Project[]> {
-        return await ProjectRepository.find({idUser: user._id}).populate(
+    async findAll(): Promise<Project[]> {
+        return await ProjectRepository.find({}).populate(
             {
                 path: 'idCompany',
                 model: 'Company'

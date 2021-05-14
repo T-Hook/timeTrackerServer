@@ -6,7 +6,6 @@ import * as _ from 'lodash';
 import { CompanyUser } from '../../company/models/companyUser';
 import { default as CompanyUserService } from '../../company/services/companyUser.srvc';
 import { User } from '../models/user';
-
 class UserController {
     async saveUser(req: Request, resp: Response) {
         try {
@@ -25,6 +24,17 @@ class UserController {
             });
         }
     }
+    async findOneById(req: Request, resp: Response) {
+        try {
+            const user = await UserService.findOneById(req.params.id);
+            resp.status(200).send(user);
+        } catch (error) {
+            resp.send({
+                msg: 'Not found',
+                status: 404
+            });
+        }
+    }
     async update(req: Request, resp: Response) {
         const user: User = req.body;
         // @ts-ignore
@@ -34,15 +44,15 @@ class UserController {
             // @ts-ignore
             if (!__user._id) {
                 resp.send({
-                    msg: 'user not found ',
+                    msg: 'not found ',
                     data: {},
                     status: 500
                 });
             } else {
-                const _user = await UserService.update2(req.params.id);
+                const _u = await UserService.updateUser(req.params.id, user);
                 resp.send({
-                    msg: 'user updated',
-                    data: _user,
+                    msg: 'updated',
+                    data: _u,
                     status: 201
                 });
             }
