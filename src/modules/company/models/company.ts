@@ -8,6 +8,7 @@ export interface Company {
     data: { type: object, empty: true, required: false };
     name: { type: string, empty: true, required: false };
     description: { type: string, empty: true, required: false };
+    email: { type: string, empty: true, required: false };
     phone: { type: string, empty: true, required: false };
     phone2: { type: string, empty: true, required: false };
     website: { type: string, empty: true, required: false };

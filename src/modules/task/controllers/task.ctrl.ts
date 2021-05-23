@@ -41,6 +41,28 @@ class TaskController {
             });
         }
     }
+    putUpdatesToTask(req: Request, resp: Response) {
+        try {
+            const updates = req.params.idupdates, task = req.params.idtask;
+            TaskService.findById(task).then(res => {
+                res.updates.push(updates);
+                TaskService.updateUpdates(task, res.updates).then(res => {
+                    resp.send({
+                        msg: 'update task!!!!!!!!!!!!!!!!!!!',
+                        data: res,
+                        url: req.protocol + '://' + req.get('host') + req.originalUrl,
+                        status: 201
+                    });
+                });
+            });
+        } catch (error) {
+            resp.send({
+                msg: error.errors ? error.errors : error,
+                url: req.protocol + '://' + req.get('host') + req.originalUrl,
+                status: 401
+            });
+        }
+    }
     async update(req: Request, resp: Response) {
         const task: Task = req.body;
         // @ts-ignore

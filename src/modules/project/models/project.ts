@@ -4,6 +4,9 @@ import { Company } from '../../company/models/company';
 export interface Project {
     name: { type: object, empty: false, required: true };
     description: { type: object, empty: true, required: false };
+    datestart: { type: object, empty: true, required: false };
+    dateend: { type: object, empty: true, required: false };
+    status: { type: object, empty: true, required: false, default: ' unfinished' };
     meta: { type: object, empty: true, required: false };
     data: { type: object, empty: true, required: false };
     scaling: { type: object, empty: true, required: false };

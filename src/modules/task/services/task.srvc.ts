@@ -85,6 +85,13 @@ class TaskService {
     async findOneById( idTask): Promise<Task> {
         return await TaskRepository.findOne({ _id: idTask}) as Task;
     }
+    async findById(id): Promise<Task> {
+        return await TaskRepository.findById(id) as Task;
+    }
+
+    updateUpdates(id, updates) {
+        return TaskRepository.findByIdAndUpdate(id, {updates: updates});
+    }
 
     /**
      * @description Fetches all tasks from the storage

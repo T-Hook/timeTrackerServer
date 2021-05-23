@@ -7,6 +7,9 @@ export type ProjectType = Project & mongoose.Document;
 const ProjectSchema = new mongoose.Schema({
     name: {type: Object, empty: false, required: true},
     description: {type: Object, empty: true, required: false},
+    datestart: {type: Object, empty: true, required: false},
+    dateend: {type: Object, empty: true, required: false},
+    status: {type: Object, empty: true, required: false},
     meta: {type: Object, empty: true, required: false},
     data: {type: Object,  empty: true, required: false},
     scaling: {type: Object, empty: true, required: false},
