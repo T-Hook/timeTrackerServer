@@ -153,6 +153,9 @@ class UserService {
     async findAll(): Promise<User[]> {
         return await UserRepository.find().populate('profile') as User[];
     }
+    async find(): Promise<User[]> {
+        return await UserRepository.find({'speciality' : { $exists: true }}, {speciality : 8, _id : 0}).populate('profile') as User[];
+    }
     async findone(userId): Promise<User[]> {
         return await UserRepository.find({idUser : userId}).populate('profile') as User[];
     }

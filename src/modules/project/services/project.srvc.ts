@@ -49,6 +49,9 @@ class ProjectService {
                 model: 'Company'
             }) as Project[];
     }
+    async findd(): Promise<Project[]> {
+        return await ProjectRepository.find({'status' : { $exists: true }}, {status: 10, _id : 0}) as Project[];
+    }
 
     /**
      * @description Fetches all projects from the storage

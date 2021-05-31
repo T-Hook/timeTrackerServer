@@ -172,6 +172,18 @@ class UserController {
             });
         }
     }
+
+    async getAllProfilespecific(req: Request, resp: Response) {
+        try {
+            const users = await UserService.find();
+            resp.status(200).send(users);
+        } catch (error) {
+            resp.send({
+                msg: 'Not found',
+                status: 404
+            });
+        }
+    }
 }
 
 export default new UserController();

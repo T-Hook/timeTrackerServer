@@ -5,6 +5,7 @@ import UserController from './controllers/user.ctrl';
 
 const UserRouter = Router();
 UserRouter.get('/', AuthController.verifyUser, UserController.getAll);
+UserRouter.get('/get', AuthController.verifyUser, UserController.getAllProfilespecific);
 UserRouter.get('/users', AuthController.verifyUser, UserController.getSpecificUserForUserWithShowAccess);
 UserRouter.get('/profiles', AuthController.verifyUser, UserController.getAllProfile);
 UserRouter.get('/user', AuthController.verifyUser, UserController.findprofile);

@@ -7,6 +7,7 @@ import { default as CompanyAclController } from '../company/controllers/companyA
 
 const ProjectRouter = Router();
 ProjectRouter.get('/', AuthController.verifyUser, ProjectController.getAll);
+ProjectRouter.get('/get', AuthController.verifyUser, ProjectController.get);
 ProjectRouter.get('/u', AuthController.verifyUser, ProjectController.getone);
 ProjectRouter.post('/', AuthController.verifyUser, ProjectController.saveProject);
 ProjectRouter.get('/:id', AuthController.verifyUser, ProjectController.findOneById);

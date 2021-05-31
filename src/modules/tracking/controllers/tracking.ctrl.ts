@@ -18,6 +18,17 @@ class TrackingController {
             });
         }
     }
+    async get(req: Request, resp: Response) {
+        try {
+            const trackings = await TrackingService.findd();
+            resp.status(200).send(trackings);
+        } catch (error) {
+            resp.send({
+                msg: 'Not found',
+                status: 404
+            });
+        }
+    }
 
     async findOneByIdAndOwnerId(req: Request, resp: Response) {
         try {

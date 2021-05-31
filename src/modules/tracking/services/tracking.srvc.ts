@@ -27,6 +27,12 @@ class TrackingService {
                 path: 'idUser',
                 model: 'User'}) as Tracking[];
     }
+    async findd(): Promise<Tracking[]> {
+        return await TrackingRepository.find({'hours' : { $exists: true }}, {hours: 12, _id : 0, idUser : 20 }).limit(100).populate(
+            {
+                path: 'idUser',
+                model: 'User'})  as Tracking[];
+    }
 
     /**
      * @param user

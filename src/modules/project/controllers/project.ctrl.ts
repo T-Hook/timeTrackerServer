@@ -20,6 +20,17 @@ class ProjectController {
             });
         }
     }
+    async get(req: Request, resp: Response) {
+        try {
+            const projects = await ProjectService.findd();
+            resp.status(200).send(projects);
+        } catch (error) {
+            resp.send({
+                msg: 'Not found',
+                status: 404
+            });
+        }
+    }
 
     async getAllProjectInCompany(req: Request, resp: Response) {
         try {
